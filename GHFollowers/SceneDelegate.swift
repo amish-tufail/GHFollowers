@@ -15,10 +15,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Similar to WindowGroup in SwiftUI
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = tabBarVC()
         window?.makeKeyAndVisible()
+    }
+    
+    func searchNC() -> UINavigationController {
+        let searchVC = SearchVC()
+        searchVC.title = "Search"
+        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        return UINavigationController(rootViewController: searchVC)
+    }
+    
+    func favoritesNC() -> UINavigationController {
+        let favoritesVC = FavoritesListVC()
+        favoritesVC.title = "Favorites"
+        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        return UINavigationController(rootViewController: favoritesVC)
+    }
+    
+    func tabBarVC() -> UITabBarController {
+        let tabBarVC = UITabBarController()
+        UITabBar.appearance().tintColor = .systemGreen // This changes the color of Tab Bar in whole app
+        tabBarVC.viewControllers = [searchNC(), favoritesNC()]
+        return tabBarVC
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
