@@ -20,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = tabBarVC()
         window?.makeKeyAndVisible()
+        
+        navigationBarTintColor()
     }
     
     func searchNC() -> UINavigationController {
@@ -41,6 +43,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().tintColor = .systemGreen // This changes the color of Tab Bar in whole app
         tabBarVC.viewControllers = [searchNC(), favoritesNC()]
         return tabBarVC
+    }
+    
+    func navigationBarTintColor() {
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
