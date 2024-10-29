@@ -44,6 +44,7 @@ class SearchVC: UIViewController {
     
     @objc private func pushToFollowersListVC() {
         guard isUserNameEntered else {
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for😄.", actionTitle: "Ok")
             print("No user name entered")
             return
         }
@@ -82,7 +83,7 @@ class SearchVC: UIViewController {
     
     private func configureCallToActionButton() {
         view.addSubview(callToActionButton)
-        callToActionButton.addTarget(self, action: #selector (pushToFollowersListVC), for: .touchUpInside)
+        callToActionButton.addTarget(self, action: #selector(pushToFollowersListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
