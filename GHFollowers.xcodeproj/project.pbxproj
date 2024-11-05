@@ -14,7 +14,7 @@
 		043D00592CC6A03300FDDF5E /* Exceptions for "GHFollowers" folder in "GHFollowers" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Support/Info.plist,
+				Info.plist,
 			);
 			target = 043D00462CC6A03300FDDF5E /* GHFollowers */;
 		};
